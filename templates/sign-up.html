@@ -14,7 +14,7 @@
         <tr>
           <td class="right"><label for="username">Username
             {% if error_type == 1 %}
-              <br /><span class="error small">Involid Username*</span>
+              <br /><span class="error small">Invalid Username*</span>
             {% endif %}
           </label></td>
           <td><input type="text" id="username" name="username"
@@ -26,7 +26,7 @@
         <tr>
           <td class="right"><label for="pw">Password
             {% if error_type == 2 %}
-              <br /><span class="error small">Involid Password*</span>
+              <br /><span class="error small">Invalid Password*</span>
             {% endif %}
           </label></td>
           <td><input type="password" id="pw" name="pw" /></td>
@@ -40,8 +40,12 @@
           <td><input type="password" id="vpw" name="verify_pw" /></td>
         </tr>
         <tr>
-          <td class="right"><label for="email">Email (optional)</label></td>
-          <td><input type="email" id="email" name="email"
+          <td class="right"><label for="email">Email (optional)
+            {% if error_type == 4 %}
+              <br /><span class="error small">name@company.com*</span>
+            {% endif %}
+          </label></td>
+          <td><input type="text" id="email" name="email"
             {% if email %}
             value="{{email}}"
             {% endif %} /></td>

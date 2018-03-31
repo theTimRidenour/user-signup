@@ -4,20 +4,12 @@
   width: 290px;
   border: 5px solid #000;
   border-radius: 10px;
+  background-color: #FFF;
 }
 
 .button {
   width: 270px;
   padding-left: 18px;
-}
-
-table {
-  width: 320px;
-}
-
-h2 {
-  padding-left: 115px;
-  text-shadow: 2px 2px #DDD;
 }
 
 .right {
@@ -34,4 +26,17 @@ h2 {
 .small {
   font-size: 0.75em;
   height: 5px;
+}
+
+body {
+  background-color: #CCF;
+}
+
+table {
+  width: 320px;
+}
+
+h2 {
+  padding-left: 115px;
+  text-shadow: 2px 2px #DDD;
 }
