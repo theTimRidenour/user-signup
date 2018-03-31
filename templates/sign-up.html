@@ -2,36 +2,58 @@
 <html>
 <head>
   <title>Register</title>
-  <link rel="stylesheet" type="text/css" href="../resources/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='resources/css/style.css') }}" />
 </head>
 <body>
   <div class="reg-box">
-      <form method="POST">
+      <form method="post">
       <table>
         <tr>
           <td colspan="2"><h2>Signup</h2></td>
         </tr>
         <tr>
-          <td>Username</td>
-          <td><input type="text" name="username" /></td>
+          <td class="right"><label for="username">Username
+            {% if error_type == 1 %}
+              <br /><span class="error small">Involid Username*</span>
+            {% endif %}
+          </label></td>
+          <td><input type="text" id="username" name="username"
+            {% if username %}
+            value="{{username}}"
+            {% endif %}
+             /></td>
         </tr>
         <tr>
-          <td>Password</td>
-          <td><input type="password" name="pw" /></td>
+          <td class="right"><label for="pw">Password
+            {% if error_type == 2 %}
+              <br /><span class="error small">Involid Password*</span>
+            {% endif %}
+          </label></td>
+          <td><input type="password" id="pw" name="pw" /></td>
         </tr>
         <tr>
-          <td>Verify Password</td>
-          <td><input type="password" name="verify_pw" /></td>
+          <td class="right"><label for="vpw">Verify Password
+            {% if error_type == 3 %}
+              <br /><span class="error small">Mismatch*</span>
+            {% endif %}
+          </label></td>
+          <td><input type="password" id="vpw" name="verify_pw" /></td>
         </tr>
         <tr>
-          <td>Email (optional)</td>
-          <td><input type="email" name="email" /></td>
+          <td class="right"><label for="email">Email (optional)</label></td>
+          <td><input type="email" id="email" name="email"
+            {% if email %}
+            value="{{email}}"
+            {% endif %} /></td>
         </tr>
         <tr>
-          <td colspan="2"><input type="submit" value="Submit" class="button" /></td>
+          <td colspan="2" class="button"><input type="submit" value="Submit" class="button" /></td>
         </tr>
       </table>
       </form>
+      {% if error %}
+      <p class="error">*error: {{error}}</p>
+      {% endif %}
     </div>
 </body>
 </html>
